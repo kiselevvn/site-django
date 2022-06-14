@@ -30,5 +30,72 @@ get_setting 'SUBTITLE' default=''
     </div>
   </section>
 </main>
+<div class="map">
+  {% autoescape off %}
 
+  {% get_setting 'MAP_IFRAME_TAG' default='<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2710.2855401298402!2d39.66315611528461!3d47.210994979160446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40e3b9299c9e202b%3A0x45b1498bfe4e8789!2z0L_RgC4g0KHRgtCw0YfQutC4LCA1OSwgNDA2LCDQoNC-0YHRgtC-0LIt0L3QsC3QlNC-0L3Rgywg0KDQvtGB0YLQvtCy0YHQutCw0Y8g0L7QsdC7LiwgMzQ0MDA0!5e0!3m2!1sru!2sru!4v1654686777689!5m2!1sru!2sru" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' %}
+
+  {% endautoescape %}
+</div>
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="contact-form">
+          <h4>Отзывы</h4>
+          <p class="form-message"></p>
+          {% if instance %}
+          <h5>Ваш отзыв успешно сохранен!</h5>
+          {% endif %}
+          <form id="contact-form" action="#" method="POST">
+            {% csrf_token %}
+            {% render_field form.name class+="" placeholder=form.name.label %}
+            {% render_field form.number class+="" placeholder=form.number.label %}
+            {% render_field form.email class+="" placeholder=form.email.label %}
+            {% render_field form.text class+="" placeholder=form.text.label %}
+
+            {% render_field form.privacy  %} Принимаю условия обработки личной информации
+              <button type="submit" name="submit">Отправить</button>
+          </form>
+        </div>
+      </div>
+    <div class="col-lg-6">
+      <div class="contact-address">
+        <h4>Контактная информация</h4>
+        <p>Вы можете с нами связаться при помощи звонка, либо обратиться напрямую в наш офис</p>
+          <ul>
+            <li>
+              <div class="contact-address-icon">
+                <i class="icofont icofont-headphone-alt"></i>
+              </div>
+              <div class="contact-address-info">
+                <a href="callto:#">+7(938)-160-79-17</a>
+              </div>
+            </li>
+            <li>
+              <div class="contact-address-icon">
+                <i class="icofont icofont-envelope"></i>
+              </div>
+              <div class="contact-address-info">
+                <a href="mailto:#">Prom.sert1@mail.ru</a>
+              </div>
+            </li>
+            <li>
+              <div class="contact-address-icon">
+                <i class="icofont icofont-web"></i>
+              </div>
+              <div class="contact-address-info">
+                <p>Юр адрес: г. Ростов-на-Дону, улица Стачки 59, офис 406<br>
+                  Физ адрес:г. Ростов-на-Дону, улица Стачки 59, офис 406</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+      </div>
+    </div>
+  </div>
 {% endblock %}
