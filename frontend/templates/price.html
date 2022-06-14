@@ -1,0 +1,72 @@
+{% extends "layouts/site-layout.html" %}
+{% load static extra_settings widget_tweaks  %}
+
+{% comment %}
+
+EXTRA SETTINGS EXAMPLE:
+get_setting 'SUBTITLE' default=''
+
+{% endcomment %}
+
+{% block content  %}
+<main style="padding-top: 123px;">
+  <section class="marge">
+    <div class="accordeon">
+      <div class="item">
+        <input type="radio" name="btn" value="one" checked="checked">
+        <label for="btn" class="entypo-">Что делать если нет нужной мне услуги?</label>
+        <article id="content-1">
+          <p>Если вы не нашли требуемую вам услугу, вы можете связаться с нами и мы сможем уточнить, сможет ли наша
+            компания реализовать ваш заказ</p>
+        </article>
+      </div>
+
+      <div class="item">
+        <input type="radio" name="btn" value="two">
+        <label for="btn" class="entypo-">Почему стоимость услуги указана только от?</label>
+        <article id="content-2">
+          <p>Стоимость услуги указана только от потому что конечная стоимость будет зависеть от общего количества
+            работ, которые будут проведены</p>
+        </article>
+      </div>
+
+      <div class="item">
+        <input type="radio" name="btn" value="three">
+        <label for="btn" class="entypo-">Почему время исполнения услуги указано только от?</label>
+        <article id="content-3">
+          <p>Время исполнения услуги указана только от потому что конечная время исполнения будет зависеть от общего
+            количества работ, которые будут проведены</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row row-cols-5">
+        <div class="col">
+          Название услуги
+        </div>
+        <div class="col cent">
+          Стоимость услуги
+        </div>
+        <div class="col">
+          Время выполнения
+        </div>
+      </div>
+    {% for price in prices %}
+      <div class="row row-cols-5">
+        <div class="col">
+          {{price.service_name}}
+        </div>
+        <div class="col cent">
+          {{price.price}}
+        </div>
+        <div class="col">
+          {{price.time_completion}}
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+
+  <section class='blank_space'></section>
+</main>
+{% endblock %}

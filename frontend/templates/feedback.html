@@ -1,0 +1,34 @@
+{% extends "layouts/site-layout.html" %}
+{% load static extra_settings widget_tweaks  %}
+
+{% comment %}
+
+EXTRA SETTINGS EXAMPLE:
+get_setting 'SUBTITLE' default=''
+
+{% endcomment %}
+
+{% block content  %}
+<main style="margin-top:120px">
+  <section class="showcase-area ptb-40">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="sec-title">
+            <h2>Добро пожаловать<span class="sec-title-border"><span></span><span></span><span></span></span></h2>
+            <p>Мы всегда рады посетителям нашего сайта и готовы им помочь с любым вопросом</p>
+          </div>
+        </div>
+      </div>
+      <div class="row flexbox-center">
+        <div class="col-lg-6">
+          <div class="single-showcase-box">
+            <p>На данной странице вы можете либо оставить какой-либо отзыв о проведённых работах чтобы мы могли улучшить качество своих работ или обслуживания. Также, если вам требуется дополнительная информация по какому-либо вопросу, опишите свой вопрос в сообщении к отзыву и мы свяжемся с вами в течении суток в удобной для вас форме</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock %}

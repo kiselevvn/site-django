@@ -1,0 +1,57 @@
+{% extends "layouts/site-layout.html" %}
+{% load static extra_settings widget_tweaks  %}
+
+{% comment %}
+
+EXTRA SETTINGS EXAMPLE:
+get_setting 'SUBTITLE' default=''
+
+{% endcomment %}
+
+{% block content  %}
+<main style="padding-top: 123px;">
+  <section class="marge">
+    <div class="accordeon">
+      <div class="item">
+          <input type="radio" name="btn" value="one" checked="checked">
+          <label for="btn" class="entypo-">Что если я не хочу чтобы моё имя было здесь?</label>
+          <article id="content-1"><p>Если вы не хотите чтобы ваше имя находилось на данной странице, вы можете это сразу уточнить при составлении контракта перед началом работ</p></article>
+      </div>
+
+    </div>
+
+    <div class="container">
+      <div class="row row-cols-5">
+        <div class="col">
+          Название проекта
+
+        </div>
+        <div class="col cent">
+          Заказчик
+
+        </div>
+        <div class="col">
+          Время выполнения
+
+        </div>
+      </div>
+      {% for portfolio in portfolios %}
+      <div class="row row-cols-5">
+        <div class="col">
+          {{portfolio.project_name}}
+        </div>
+        <div class="col cent">
+          {{portfolio.customer}}
+        </div>
+        <div class="col">
+          {{portfolio.time_completion}}
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </section>
+
+  <section class='blank_space'></section>
+</main>
+{% endblock %}
